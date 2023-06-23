@@ -3,25 +3,194 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    color: rgb(var(--foreground-rgb));
+    background: #d2d2d2;
+}
+
+.todoapp {
+    background: linear-gradient(
+            to bottom right,
+            rgb(var(--background-start-rgb)),
+            rgb(var(--background-end-rgb))
+    );
+}
+
+.todos-container {
+    background: rgba(var(--foreground-rgb), 0.5);
+    padding: 50px;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.todo-form {
+    display: flex;
+    gap: 20px;
+}
+
+.todo-form textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-size: 1.2rem;
+    background: rgba(var(--foreground-rgb), 0.5);
+    color: rgb(var(--background-start-rgb));
+    width: 600px;
+    min-height: 100px;
+}
+
+@media (max-width: 768px) {
+    .todo-form textarea {
+        width: 300px;
+    }
+}
+
+.todo-form button {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-size: 1.2rem;
+    background: rgba(var(--foreground-rgb), 0.5);
+    color: rgb(var(--background-start-rgb));
+    cursor: pointer;
+    width: 100px;
+    height: 50px;
+}
+
+.no-data {
+    font-size: 1.2rem;
+    color: rgb(var(--background-start-rgb));
+}
+
+.todo-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.todo-item {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    height: fit-content;
+
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 5px;
+    background: rgba(var(--foreground-rgb), 0.5);
+
+}
+
+.todo-item p {
+    color: rgb(var(--background-start-rgb));
+    font-family: "Academy Engraved LET";
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: pre-line;
+    word-break: break-all;
+}
+
+.todo-item .todo-item_done {
+    text-decoration: line-through;
+    color: #ccc;
+}
+
+.todo-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.todo-item button {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-size: 1.2rem;
+    background: rgba(var(--foreground-rgb), 0.5);
+    color: rgb(var(--background-start-rgb));
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.todo-item_edit{
+    background: rgba(var(--foreground-rgb), 0.5);
+    color: rgb(var(--background-start-rgb));
+    cursor: pointer;
+    width: 300px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.todo-item button:hover {
+    background: rgba(var(--foreground-rgb), 0.8);
+}
+
+.todo-item button:active {
+    background: rgba(var(--foreground-rgb), 1);
+}
+
+.stats {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.stats p {
+    font-size: 1.2rem;
+    color: rgb(var(--background-start-rgb));
+}
+
+.stats p span {
+    font-weight: 600;
+}
+
+.stats p span:first-child {
+    color: #ff0000;
+}
+
+.stats p span:last-child {
+    color: #00ff00;
+}
+
+@media (max-width: 768px) {
+    .todo-form {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .todo-form textarea {
+        min-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .todo-form {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .todo-form textarea {
+        min-width: 100%;
+    }
 }

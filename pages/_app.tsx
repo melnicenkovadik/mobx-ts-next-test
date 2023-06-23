@@ -1,6 +1,20 @@
-import '@/styles/globals.css'
-import type { AppProps } from 'next/app'
+import "@/styles/globals.css";
+import type {AppProps} from "next/app";
+import {StoreProvider, SimpleTodoStore} from "@/store";
+import "../styles/globals.css";
+import {Toaster} from "react-hot-toast";
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+const store = new SimpleTodoStore();
+export default function App({Component, pageProps}: AppProps) {
+    return (
+       <>
+           <Toaster
+               position="top-right"
+               reverseOrder={false}
+           />
+           <StoreProvider store={store}>
+               <Component {...pageProps} />
+           </StoreProvider>
+       </>
+    );
 }
