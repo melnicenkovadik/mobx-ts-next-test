@@ -23,15 +23,10 @@ class SimpleTodoStore {
 
     addTodo = (todo: ITodo) => {
         this.todos.push(todo);
-        localStorage.setItem("todos", JSON.stringify(this.todos));
-        toast.success('Todo added successfully');
-
     };
 
     removeTodo = (id: string) => {
         this.todos = this.todos.filter((todo) => todo.id !== id);
-        localStorage.setItem("todos", JSON.stringify(this.todos));
-        toast.success('Todo removed successfully');
     };
 
     editTodo = (id: string, text: string) => {
@@ -41,8 +36,6 @@ class SimpleTodoStore {
             }
             return todo;
         });
-        localStorage.setItem("todos", JSON.stringify(this.todos));
-        toast.success('Todo edited successfully');
     };
 
     toggleDone = (id: string) => {
@@ -52,8 +45,6 @@ class SimpleTodoStore {
             }
             return todo;
         });
-        localStorage.setItem("todos", JSON.stringify(this.todos));
-        toast.success('Todo toggled successfully');
     };
 
     get doneTodos() {

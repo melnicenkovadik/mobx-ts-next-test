@@ -1,6 +1,7 @@
 import {FC, FormEvent, useState} from "react";
 import {useStore} from "@/store";
 import {observer} from "mobx-react-lite";
+import toast from "react-hot-toast";
 
 const Form: FC = observer(() => {
     const store = useStore();
@@ -13,6 +14,7 @@ const Form: FC = observer(() => {
             done: false,
             id: Date.now().toString(),
         });
+        toast.success('Todo added successfully');
         setMessage("");
     };
 

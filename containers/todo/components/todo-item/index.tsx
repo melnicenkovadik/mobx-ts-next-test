@@ -4,6 +4,7 @@ import TodoButtons from "./todo-buttons";
 import {ITodo} from "@/types/todo.types";
 import {useState} from "react";
 import {useStore} from "@/store";
+import toast from "react-hot-toast";
 
 const TodoItem = ({item}: { item: ITodo }) => {
     const {text, id, done} = item;
@@ -25,6 +26,7 @@ const TodoItem = ({item}: { item: ITodo }) => {
                         if (e.key === "Enter") {
                             setIsEditing(false);
                             editTodo(id, newText);
+                            toast.success('Todo edited successfully');
                         }
                     }}
                     autoFocus
